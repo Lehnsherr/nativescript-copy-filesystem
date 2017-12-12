@@ -5,7 +5,7 @@ import * as permissions from 'nativescript-permissions';
 
 export class CopyFilesystem extends Common {
 
-    copy(source_path, target_path, ending) {
+    public copy(source_path, target_path, ending) {
         if (ending == undefined) {
             ending = 'copy'
         }    
@@ -37,7 +37,7 @@ export class CopyFilesystem extends Common {
         }
     }
 
-    hasPermission_external_storage() {
+    public hasPermission_external_storage() {
         if ((permissions.hasPermission((android as any).Manifest.permission.READ_EXTERNAL_STORAGE) == false) ||
             (permissions.hasPermission((android as any).Manifest.permission.READ_EXTERNAL_STORAGE) == false)) {
             getPermission_external_storage();
@@ -50,7 +50,7 @@ export class CopyFilesystem extends Common {
      * Alle Dateien im Pfad ausgeben
      * @param source_path Ursprungspfad ohne Datei nur Pfad
      */
-    log_FolderEntities(source_path) {
+    public log_FolderEntities(source_path) {
         console.log('Start log_FolderEntities: ' + source_path)
         var i = 0;
         var old_folder = fs.Folder.fromPath(source_path);
