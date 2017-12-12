@@ -60,6 +60,9 @@ export class HelloWorldModel extends Observable {
 			var documents = fs.knownFolders.documents();
 			var path = fs.path.join(documents.path, "test.txt");
 			
+			this.copyFilesystem.log_FolderEntities(documents.path)
+
+
 			var file = fs.File.fromPath(path);
 
 			var test_txt = folder.getFile('test.txt');
@@ -76,7 +79,6 @@ export class HelloWorldModel extends Observable {
 			// this.copyFilesystem.copy(documents.path, documents.path, 'copy')
 			
 			
-			this.copyFilesystem.log_FolderEntities(documents.path)
 
 		}
 	}
