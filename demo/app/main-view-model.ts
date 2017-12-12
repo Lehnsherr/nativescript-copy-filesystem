@@ -5,15 +5,12 @@ import * as fs from 'tns-core-modules/file-system';
 import * as application from 'tns-core-modules/application';
 
 export class HelloWorldModel extends Observable {
-	public message: string;
 	private copyFilesystem: CopyFilesystem;
 
 	constructor() {
 		super();
 
-		//this.copyFilesystem = new CopyFilesystem();
-		this.message = this.copyFilesystem.message;
-
+		this.copyFilesystem = new CopyFilesystem();
 
 		if (!application.ios) {
 			this.copyFilesystem.hasPermission_external_storage()
@@ -57,12 +54,11 @@ export class HelloWorldModel extends Observable {
 		}
 
 		if (application.ios) {
+			this.copyFilesystem.log_FolderEntities(documents.path)
+
 			var documents = fs.knownFolders.documents();
 			var path = fs.path.join(documents.path, "test.txt");
 			
-			this.copyFilesystem.log_FolderEntities(documents.path)
-
-
 			var file = fs.File.fromPath(path);
 
 			var test_txt = folder.getFile('test.txt');
@@ -77,7 +73,6 @@ export class HelloWorldModel extends Observable {
 			// Test folder copy
 			// console.log('Test folder copy');
 			// this.copyFilesystem.copy(documents.path, documents.path, 'copy')
-			
 			
 
 		}
