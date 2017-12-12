@@ -5,3 +5,7 @@ export declare class CopyFilesystem extends Common {
     hasPermission_external_storage(): void;
     log_FolderEntities(log_FolderEntities: string): void;
 }
+
+export declare class VersionNumber {
+	get(): string;
+}

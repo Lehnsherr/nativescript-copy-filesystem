@@ -1,16 +1,21 @@
 import {Observable} from 'tns-core-modules/data/observable';
-import {CopyFilesystem} from 'nativescript-copy-filesystem';
+import {CopyFilesystem, VersionNumber} from 'nativescript-copy-filesystem';
 
 import * as fs from 'tns-core-modules/file-system';
 import * as application from 'tns-core-modules/application';
 
 export class HelloWorldModel extends Observable {
 	private copyFilesystem: CopyFilesystem;
+	private versionNumber: VersionNumber;
+	public message: string;
 
 	constructor() {
 		super();
 
 		this.copyFilesystem = new CopyFilesystem();
+
+		this.versionNumber  = new VersionNumber();
+		this.message = this.versionNumber.get();
 
 		if (!application.ios) {
 			this.copyFilesystem.hasPermission_external_storage()

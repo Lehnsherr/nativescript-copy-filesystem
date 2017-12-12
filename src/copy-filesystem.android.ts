@@ -138,7 +138,6 @@ function copyFile(source_path, target_path, ending) {
     });
 }
 
-
 /**
  * Kopiert einen Ordner samt unterordernen 
  * @param source_path Ursprungspfad ohne Datei nur Pfad
@@ -247,4 +246,13 @@ function getNewFolderName(source_path, target_path, ending){
         }while (checkIsFolder(new_target_path) == true)
     }
     return new_folder_name;
+}
+
+export class VersionNumber extends Common{
+    get() {
+        var PackageManager = android.content.pm.PackageManager;
+        var pkg = application.android.context.getPackageManager().getPackageInfo(application.android.context.getPackageName(),
+        PackageManager.GET_META_DATA);
+        return pkg.versionName;
+    }
 }
