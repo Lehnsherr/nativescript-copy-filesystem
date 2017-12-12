@@ -54,11 +54,11 @@ export class HelloWorldModel extends Observable {
 		}
 
 		if (application.ios) {
-			this.copyFilesystem.log_FolderEntities(documents.path)
-
 			var documents = fs.knownFolders.documents();
-			var path = fs.path.join(documents.path, "test.txt");
+
+			this.copyFilesystem.log_FolderEntities(documents.path)
 			
+			var path = fs.path.join(documents.path, "test.txt");
 			var file = fs.File.fromPath(path);
 
 			var test_txt = folder.getFile('test.txt');
