@@ -3,7 +3,7 @@ import { Common } from './copy-filesystem.common';
 import * as fs from 'tns-core-modules/file-system';
 import * as application from 'tns-core-modules/application';
 
-export class CopyFilesystem extends Common {
+export class CopyFilesystem {
 
     public copy(source_path, target_path, ending) {
         if (ending == undefined) {

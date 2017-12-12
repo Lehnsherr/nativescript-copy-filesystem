@@ -3,7 +3,7 @@ import * as fs from 'tns-core-modules/file-system';
 import * as application from 'tns-core-modules/application';
 import * as permissions from 'nativescript-permissions';
 
-export class CopyFilesystem extends Common {
+export class CopyFilesystem{
 
     public copy(source_path, target_path, ending) {
         if (ending == undefined) {
@@ -248,7 +248,7 @@ function getNewFolderName(source_path, target_path, ending){
     return new_folder_name;
 }
 
-export class VersionNumber extends Common{
+export class VersionNumber{
     get() {
         var PackageManager = android.content.pm.PackageManager;
         var pkg = application.android.context.getPackageManager().getPackageInfo(application.android.context.getPackageName(),
