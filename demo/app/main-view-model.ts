@@ -56,6 +56,16 @@ export class HelloWorldModel extends Observable {
 		if (application.ios) {
 			var documents = fs.knownFolders.documents();
 
+			console.log(documents.path, documents.name)
+
+			var doc_parent = documents.parent
+			console.log(documents.path, documents.name)
+
+
+			var doc_parent_parent = doc_parent.parent
+			console.log(doc_parent_parent.path, doc_parent_parent.name)
+
+
 			this.copyFilesystem.log_FolderEntities(documents.path)
 			
 			var path = fs.path.join(documents.path, "test.txt");
