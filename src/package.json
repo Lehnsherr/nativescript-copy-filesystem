@@ -50,6 +50,8 @@
         "rimraf": "^2.5.0",
         "tslint": "^5.0.0"
     },
-    "dependencies": {},
+    "dependencies": {
+        "nativescript-permissions": "^1.2.3"
+    },
     "bootstrapper": "nativescript-plugin-seed"
 }
