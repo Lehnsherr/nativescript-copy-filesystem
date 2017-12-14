@@ -61,33 +61,39 @@ export class HelloWorldModel extends Observable {
 		if (application.ios) {
 			let doc_folder = fs.knownFolders.documents();
 			console.log(
-				'doc_folder.path: ' + doc_folder.path, 
-				'doc_folder.name: ' + doc_folder.name)
+				'1| doc_folder.path: ' + doc_folder.path + '\n', 
+				'1| doc_folder.name: ' + doc_folder.name + '\n')
 
 
 			let doc_parent = doc_folder.parent
 			console.log(
-				'doc_parent.path: ' + doc_parent.path, 
-				'doc_parent.name: ' + doc_parent.name)
+				'2| doc_parent.path: ' + doc_parent.path + '\n', 
+				'2| doc_parent.name: ' + doc_parent.name + '\n')
 
 			let doc_parent_parent = doc_parent.parent
 			console.log(
-				'doc_parent_parent.path: ' + doc_parent_parent.path, 
-				'doc_parent_parent.name: ' + doc_parent_parent.name)
+				'3| doc_parent_parent.path: ' + doc_parent_parent.path + '\n', 
+				'3| doc_parent_parent.name: ' + doc_parent_parent.name + '\n')
 			
 			//Test erreichbare tiefe
 			let doc_parent_parent_parent = doc_parent_parent.parent
 			console.log(
-				'doc_parent_parent_parent.path: ' + doc_parent_parent_parent.path, 
-				'doc_parent_parent_parent.name: ' + doc_parent_parent_parent.name)
+				'4| doc_parent_parent_parent.path: ' + doc_parent_parent_parent.path + '\n', 
+				'4| doc_parent_parent_parent.name: ' + doc_parent_parent_parent.name + '\n')
 			
 			//Test erreichbare tiefe
-			let doc_parent_parent_parent_parent = doc_parent_parent_parent.parent
+			let doc_parentx4 = doc_parent_parent_parent.parent
 			console.log(
-				'doc_parent_parent_parent_parent.path: ' + doc_parent_parent_parent_parent.path, 
-				'doc_parent_parent_parent_parent.name: ' + doc_parent_parent_parent_parent.name)
+				'5| doc_parentx4.path: ' + doc_parentx4.path + '\n', 
+				'5| doc_parentx4.name: ' + doc_parentx4.name + '\n')
 
-			this.copyFilesystem.log_FolderEntities(doc_folder.path)
+							//Test erreichbare tiefe
+			let doc_parentx5 = doc_parentx4.parent
+			console.log(
+				'6| doc_parentx4.path: ' + doc_parentx5.path + '\n', 
+				'6| doc_parentx4.name: ' + doc_parentx5.name + '\n')
+
+			this.copyFilesystem.log_FolderEntities(doc_parentx5.path)
 			
 			let path = fs.path.join(doc_folder.path, "test.txt");
 			let file = fs.File.fromPath(path);
