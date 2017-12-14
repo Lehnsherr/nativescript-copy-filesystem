@@ -59,12 +59,14 @@ export class CopyFilesystem{
             .then(entities => {
                 // entities is array with the document's files and folders.
                 entities.forEach(entity => {
-                    console.log('   log_Entitie: '+ i + '\n' + 
-                                '       name: ' + entity.name + '\n' +
-                                '       path: ' + entity.path + '\n' +
-                                '       is folder: ' + checkIsFolder(entity.path) + '\n')
-                });
+                    console.log(
+                        '   log_Entitie: '+ i + '\n' + 
+                        '       name: ' + entity.name + '\n' +
+                        '       path: ' + entity.path + '\n' +
+                        '       is folder: ' + checkIsFolder(entity.path) + '\n'
+                    )
                 i++;
+                });
             }).catch(err => {
                 // Failed to obtain folder's contents.
                 console.log(err.stack);
