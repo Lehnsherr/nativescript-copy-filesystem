@@ -14,7 +14,7 @@ export class HelloWorldModel extends Observable {
 
 		this.copyFilesystem = new CopyFilesystem();
 
-		this.versionNumber  = new VersionNumber();
+		this.versionNumber  = new VersionNumber();		
 		this.message = this.versionNumber.get();
 
 		if (!application.ios) {
@@ -44,9 +44,8 @@ export class HelloWorldModel extends Observable {
 			var dcim = dcim_path + '/Download_copy(2)'
 			var folder_dcim = fs.Folder.fromPath(dcim);
 
+			console.log('Folder to delete: ' + folder_dcim.path + folder_dcim.name)
 
-			console.log(folder_dcim)
-			// console.dir(folder_dcim)
 			// Remove a folder and recursively its content.
 			folder_dcim.remove()
 				.then(function (result) {
@@ -59,22 +58,24 @@ export class HelloWorldModel extends Observable {
 		}
 
 		if (application.ios) {
-			var documents = fs.knownFolders.documents();
+			var doc_folder = fs.knownFolders.documents();
 
-			console.log(documents.path, documents.name)
+			console.log(doc_folder.path, doc_folder.name)
 
-			var doc_parent = documents.parent
-			console.log(documents.path, documents.name)
+			var doc_parent = doc_folder.parent
+			console.log(doc_parent.path, doc_parent.name)
 
 
 			var doc_parent_parent = doc_parent.parent
 			console.log(doc_parent_parent.path, doc_parent_parent.name)
 
 
-			this.copyFilesystem.log_FolderEntities(documents.path)
+			this.copyFilesystem.log_FolderEntities(doc_folder.path)
 			
-			var path = fs.path.join(documents.path, "test.txt");
+			var path = fs.path.join(doc_folder.path, "test.txt");
 			var file = fs.File.fromPath(path);
+
+			console.log('test.txt| path: ' + path, ' file.path: ' + file.path, ' file.name: ' + file.name)
 
 			var test_txt = folder.getFile('test.txt');
 			var test_svg = folder.getFile('typescript_img.svg');
@@ -83,13 +84,11 @@ export class HelloWorldModel extends Observable {
 
 			// Test file Copy
 			// console.log("Test file Copy");
-			this.copyFilesystem.copy(test_png.path, documents.path, 'kopie')
+			this.copyFilesystem.copy(test_png.path, doc_folder.path, 'kopie')
 
 			// Test folder copy
 			// console.log('Test folder copy');
-			// this.copyFilesystem.copy(documents.path, documents.path, 'copy')
-			
-
+			// this.copyFilesystem.copy(doc_folder.path, doc_folder.path, 'copy')
 		}
 	}
 }
