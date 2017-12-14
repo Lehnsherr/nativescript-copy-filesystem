@@ -40,7 +40,8 @@ export class HelloWorldModel extends Observable {
 			// Test folder copy
 			// console.log('Test folder copy');
 			this.copyFilesystem.copy(downloads_path, dcim_path, 'copy')
-			// this.copyFilesystem.log_FolderEntities(dcim_path)
+			
+			this.copyFilesystem.log_FolderEntities(dcim_path)
 
 			let dcim = dcim_path + '/Download_copy(2)'
 			let folder_dcim = fs.Folder.fromPath(dcim);

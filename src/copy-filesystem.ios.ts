@@ -43,13 +43,13 @@ export class CopyFilesystem {
      * @param source_path Ursprungspfad ohne Datei nur Pfad
      */
     log_FolderEntities(source_path) {
-        console.log('Start log_FolderEntities: ' + source_path)
         var i = 0;
         var old_folder = fs.Folder.fromPath(source_path);
-
+        
         old_folder.getEntities()
-            .then(entities => {
+        .then(entities => {
                 // entities is array with the document's files and folders.
+                console.log('Start log_FolderEntities: ' + source_path)
                 entities.forEach(entity => {
                     console.log(
                         '   log_Entitie: '+ i + '\n' + 
