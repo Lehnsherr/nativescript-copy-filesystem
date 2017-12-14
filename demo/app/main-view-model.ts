@@ -27,6 +27,7 @@ export class HelloWorldModel extends Observable {
 
 			let folder = fs.Folder.fromPath(downloads_path);
 
+			//Legt Dateien neu an falls nicht vorhanden
 			let test_txt = folder.getFile('test.txt');
 			let test_svg = folder.getFile('typescript_img.svg');
 			let test_png = folder.getFile('img_80.png');
@@ -59,16 +60,32 @@ export class HelloWorldModel extends Observable {
 
 		if (application.ios) {
 			let doc_folder = fs.knownFolders.documents();
+			console.log(
+				'doc_folder.path: ' + doc_folder.path, 
+				'doc_folder.name: ' + doc_folder.name)
 
-			console.log(doc_folder.path, doc_folder.name)
 
 			let doc_parent = doc_folder.parent
-			console.log(doc_parent.path, doc_parent.name)
-
+			console.log(
+				'doc_parent.path: ' + doc_parent.path, 
+				'doc_parent.name: ' + doc_parent.name)
 
 			let doc_parent_parent = doc_parent.parent
-			console.log(doc_parent_parent.path, doc_parent_parent.name)
-
+			console.log(
+				'doc_parent_parent.path: ' + doc_parent_parent.path, 
+				'doc_parent_parent.name: ' + doc_parent_parent.name)
+			
+			//Test erreichbare tiefe
+			let doc_parent_parent_parent = doc_parent_parent.parent
+			console.log(
+				'doc_parent_parent_parent.path: ' + doc_parent_parent_parent.path, 
+				'doc_parent_parent_parent.name: ' + doc_parent_parent_parent.name)
+			
+			//Test erreichbare tiefe
+			let doc_parent_parent_parent_parent = doc_parent_parent_parent.parent
+			console.log(
+				'doc_parent_parent_parent_parent.path: ' + doc_parent_parent_parent_parent.path, 
+				'doc_parent_parent_parent_parent.name: ' + doc_parent_parent_parent_parent.name)
 
 			this.copyFilesystem.log_FolderEntities(doc_folder.path)
 			
@@ -76,7 +93,8 @@ export class HelloWorldModel extends Observable {
 			let file = fs.File.fromPath(path);
 
 			console.log('test.txt| path: ' + path, ' file.path: ' + file.path, ' file.name: ' + file.name)
-
+			
+			//Legt Dateien neu an falls nicht vorhanden
 			let test_txt = doc_folder.getFile('test.txt');
 			let test_svg = doc_folder.getFile('typescript_img.svg');
 			let test_png = doc_folder.getFile('img_80.png');
