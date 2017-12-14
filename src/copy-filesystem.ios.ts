@@ -51,7 +51,10 @@ export class CopyFilesystem {
             .then(entities => {
                 // entities is array with the document's files and folders.
                 entities.forEach(entity => {
-                    console.log('   log_Entitie: ' + i + '| name: ' + entity.name + ' path: ' + entity.path + " is folder: " + checkIsFolder(entity.path))
+                    console.log('   log_Entitie: '+ i + '\n' + 
+                                '       name: ' + entity.name + '\n' +
+                                '       path: ' + entity.path + '\n' +
+                                '       is folder: ' + checkIsFolder(entity.path) + '\n')
                 });
                 i++;
             }).catch(err => {

@@ -90,11 +90,19 @@ export class HelloWorldModel extends Observable {
 							//Test erreichbare tiefe
 			let doc_parentx5 = doc_parentx4.parent
 			console.log(
-				'6| doc_parentx4.path: ' + doc_parentx5.path + '\n', 
-				'6| doc_parentx4.name: ' + doc_parentx5.name + '\n')
+				'6| doc_parentx5.path: ' + doc_parentx5.path + '\n', 
+				'6| doc_parentx5.name: ' + doc_parentx5.name + '\n')
 
 			this.copyFilesystem.log_FolderEntities(doc_parentx5.path)
 			
+			//Test erreichbare tiefe
+			let doc_parentx6 = doc_parentx5.parent
+			console.log(
+				'7| doc_parentx6.path: ' + doc_parentx6.path + '\n', 
+				'7| doc_parentx6.name: ' + doc_parentx6.name + '\n')
+							
+			this.copyFilesystem.log_FolderEntities(doc_parentx6.path)
+			/*
 			let path = fs.path.join(doc_folder.path, "test.txt");
 			let file = fs.File.fromPath(path);
 
@@ -113,6 +121,7 @@ export class HelloWorldModel extends Observable {
 			// Test folder copy
 			// console.log('Test folder copy');
 			// this.copyFilesystem.copy(doc_folder.path, doc_folder.path, 'copy')
+			*/
 		}
 	}
 }
